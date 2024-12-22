@@ -41,6 +41,20 @@ layout = {
 
 
 def on_filter(state):
+    """
+    Filter the application's data based on the selected state filters.
+
+    Checks if the city, customer type, or gender lists are empty; if so, it notifies the user
+    that no results are found. Otherwise, it applies the filters and updates the state with
+    filtered data, sales by product line, and sales by hour.
+
+    Args:
+        state: An object containing the current application state, including lists of cities,
+               customer types, and genders.
+
+    Returns:
+        None
+    """
     if (
         len(state.cities) == 0
         or len(state.customer_types) == 0
@@ -55,6 +69,20 @@ def on_filter(state):
 
 
 def filter(cities, customer_types, genders):
+    """
+    Filters the dataset based on the provided lists of cities, customer types, and genders.
+
+    Parameters:
+        cities (list of str): The list of city names used to filter the dataset.
+        customer_types (list of str): The list of customer types used to filter the dataset.
+        genders (list of str): The list of genders used to filter the dataset.
+
+    Returns:
+        tuple:
+            data_filtered (pandas.DataFrame): A filtered dataset containing rows that match the specified criteria.
+            sales_by_product_line (pandas.DataFrame): A DataFrame containing the total sales grouped by product line.
+            sales_by_hour (pandas.DataFrame): A DataFrame containing the total sales grouped by hour of purchase.
+    """
     # Filter the data based on the user selections
     data_filtered = data[
         data["City"].isin(cities)
@@ -84,6 +112,15 @@ def filter(cities, customer_types, genders):
 
 
 def to_text(value):
+    """
+    Convert a numeric value to a string with thousands separators.
+
+    Parameters:
+        value (int or float): The numeric value to convert.
+
+    Returns:
+        str: The numeric value in string format with comma separators.
+    """
     return "{:,}".format(int(value))
 
 
