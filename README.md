@@ -4,7 +4,7 @@
 This project transforms Excel data into an interactive dashboard using Python's pandas and Taipy GUI. It allows users to filter sales data based on city, customer type, and gender, providing insightful visualizations of sales by product line and sales by hour.
 
 ## Dashboard Demo
-![DataLoom](images/DataLoom_demo.gif)
+![DataLoom](media/DataLoom_demo.gif)
 
 ## Installation
 
